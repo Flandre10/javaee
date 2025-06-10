@@ -1,0 +1,20 @@
+<mapper namespace="com.example.mapper.RankMapper">
+    <select id="getAll" resultType="com.example.model.Rank">
+        SELECT * FROM rank
+    </select>
+    <select id="getById" resultType="com.example.model.Rank">
+        SELECT * FROM rank WHERE id = #{id}
+    </select>
+    <insert id="insert" parameterType="com.example.model.Rank">
+        INSERT INTO rank (user_id, rank_position, score, update_time)
+        VALUES (#{userId}, #{rankPosition}, #{score}, #{updateTime})
+    </insert>
+    <update id="update" parameterType="com.example.model.Rank">
+        UPDATE rank
+        SET user_id = #{userId}, rank_position = #{rankPosition}, score = #{score}, update_time = #{updateTime}
+        WHERE id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM rank WHERE id = #{id}
+    </delete>
+</mapper>

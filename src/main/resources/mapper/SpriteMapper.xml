@@ -1,0 +1,20 @@
+<mapper namespace="com.example.mapper.SpriteMapper">
+    <select id="getAll" resultType="com.example.model.Sprite">
+        SELECT * FROM sprite
+    </select>
+    <select id="getById" resultType="com.example.model.Sprite">
+        SELECT * FROM sprite WHERE id = #{id}
+    </select>
+    <insert id="insert" parameterType="com.example.model.Sprite">
+        INSERT INTO sprite (name, description, image_url, rarity, create_time, update_time)
+        VALUES (#{name}, #{description}, #{imageUrl}, #{rarity}, #{createTime}, #{updateTime})
+    </insert>
+    <update id="update" parameterType="com.example.model.Sprite">
+        UPDATE sprite
+        SET name = #{name}, description = #{description}, image_url = #{imageUrl}, rarity = #{rarity}, update_time = #{updateTime}
+        WHERE id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM sprite WHERE id = #{id}
+    </delete>
+</mapper>
