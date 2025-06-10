@@ -1,0 +1,20 @@
+<mapper namespace="com.example.mapper.BattleRecordMapper">
+    <select id="getAll" resultType="com.example.model.BattleRecord">
+        SELECT * FROM battle_record
+    </select>
+    <select id="getById" resultType="com.example.model.BattleRecord">
+        SELECT * FROM battle_record WHERE id = #{id}
+    </select>
+    <insert id="insert" parameterType="com.example.model.BattleRecord">
+        INSERT INTO battle_record (user_id, opponent_id, result, timestamp)
+        VALUES (#{userId}, #{opponentId}, #{result}, #{timestamp})
+    </insert>
+    <update id="update" parameterType="com.example.model.BattleRecord">
+        UPDATE battle_record
+        SET user_id = #{userId}, opponent_id = #{opponentId}, result = #{result}, timestamp = #{timestamp}
+        WHERE id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM battle_record WHERE id = #{id}
+    </delete>
+</mapper>

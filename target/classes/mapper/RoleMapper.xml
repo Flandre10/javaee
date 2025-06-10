@@ -1,0 +1,19 @@
+<mapper namespace="com.example.mapper.RoleMapper">
+    <select id="getAll" resultType="com.example.model.Role">
+        SELECT * FROM role
+    </select>
+    <select id="getById" resultType="com.example.model.Role">
+        SELECT * FROM role WHERE id = #{id}
+    </select>
+    <insert id="insert" parameterType="com.example.model.Role">
+        INSERT INTO role (name) VALUES (#{name})
+    </insert>
+    <update id="update" parameterType="com.example.model.Role">
+        UPDATE role
+        SET name = #{name}
+        WHERE id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM role WHERE id = #{id}
+    </delete>
+</mapper>
